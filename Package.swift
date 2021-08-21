@@ -11,7 +11,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", from: "0.1.0")
+    .package(name: XCTestDynamicOverlay, url: "https://github.com/pointfreeco/xctest-dynamic-overlay", .branch("0.1.0"))
   ],
   targets: [
     .target(
