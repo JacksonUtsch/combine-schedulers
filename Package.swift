@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.2
 
 import PackageDescription
 
@@ -11,13 +11,20 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(name: XCTestDynamicOverlay, url: "https://github.com/pointfreeco/xctest-dynamic-overlay", .branch("0.1.0"))
+    .package(
+			name: "xctest-dynamic-overlay",
+			url: "https://github.com/pointfreeco/xctest-dynamic-overlay",
+			.branch("0.1.0")
+		)
   ],
   targets: [
     .target(
       name: "CombineSchedulers",
       dependencies: [
-        "XCTestDynamicOverlay"
+				.product(
+					name: "XCTestDynamicOverlay",
+					package: "xctest-dynamic-overlay"
+				),
       ]
     ),
     .testTarget(
